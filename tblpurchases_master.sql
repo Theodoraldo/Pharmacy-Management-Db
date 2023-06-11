@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `tblpurchases_master` (
+  `InvoiceNo` varchar(24) NOT NULL,
+  `Subtotal` decimal(10,2) NOT NULL,
+  `BulkDis` decimal(10,2) NOT NULL,
+  `Grandtotal` decimal(10,2) NOT NULL,
+  `MoP` varchar(10) NOT NULL,
+  `Bank` varchar(50) DEFAULT NULL,
+  `MoMoRef` varchar(20) DEFAULT NULL,
+  `PaidAmt` decimal(10,2) NOT NULL,
+  `SupId` varchar(10) NOT NULL,
+  `Remarks` varchar(200) DEFAULT NULL,
+  `StuffId` varchar(15) NOT NULL,
+  `AddedDate` datetime NOT NULL,
+  PRIMARY KEY (`InvoiceNo`),
+  KEY `SupId` (`SupId`),
+  KEY `StuffId` (`StuffId`),
+  KEY `IX_tblpurchases_master_AddedDate` (`AddedDate`),
+  CONSTRAINT `tblpurchases_master_ibfk_1` FOREIGN KEY (`SupId`) REFERENCES `tblsupplier` (`SupId`),
+  CONSTRAINT `tblpurchases_master_ibfk_2` FOREIGN KEY (`StuffId`) REFERENCES `tblusers` (`StuffId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

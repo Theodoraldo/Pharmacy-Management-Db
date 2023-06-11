@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `tblsales_master` (
+  `Invoice_No` varchar(24) NOT NULL,
+  `Subtotal` decimal(10,2) NOT NULL,
+  `BulkDiscount` decimal(10,2) NOT NULL,
+  `GrandTotal` decimal(10,2) NOT NULL,
+  `AmtPaid` decimal(10,2) NOT NULL,
+  `CusID` varchar(18) NOT NULL,
+  `Remarks` varchar(200) DEFAULT NULL,
+  `Mop` varchar(10) NOT NULL,
+  `Bank` varchar(50) NOT NULL,
+  `Reff` varchar(18) NOT NULL,
+  `StuffId` varchar(15) NOT NULL,
+  `AddDated` datetime NOT NULL,
+  PRIMARY KEY (`Invoice_No`),
+  KEY `CusID` (`CusID`),
+  KEY `StuffId` (`StuffId`),
+  KEY `IX_tblsales_master_AddDated` (`AddDated`),
+  CONSTRAINT `tblsales_master_ibfk_1` FOREIGN KEY (`CusID`) REFERENCES `tblcustomers` (`CusID`),
+  CONSTRAINT `tblsales_master_ibfk_2` FOREIGN KEY (`StuffId`) REFERENCES `tblusers` (`StuffId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
