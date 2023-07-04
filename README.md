@@ -1,2 +1,2 @@
 # Pharmacy-Management-Db
-Pharmacy Management System database.
+Pharmacy Management System using MySQL database.
