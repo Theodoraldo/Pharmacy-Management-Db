@@ -1,1 +1,5 @@
-*.mysql linquist-detectable=true
+*.sql linquist-detectable=true
+*.python linquist-detectable=false
+*.html linquist-detectable=false
+*.css linquist-detectable=false
+*.js linquist-detectable=false
